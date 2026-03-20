@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">S
+<title>Construtora Alves</title>
+<style>
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 10%;
+  background: rgba(255,255,255,0.95); /* transparente e moderno */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+nav a {
+  color: #111;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6a00;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url("contrutora-01.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* escurece a imagem */
+}
+
+.hero-box {
+  position: relative;
+  z-index: 1; /* menor que o chat */
+  max-width: 700px;
+  padding: 50px 40px;
+  border-radius: 20px;
+
+  /* fundo moderno, mas agora com menos interferência */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  text-align: center;
+}
+
+
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4); /* melhora contraste */
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   BOTÕES
+========================= */
+.hero .btn {
+  background: linear-gradient(45deg, #ff6a00, #ff8c2a);
+  padding: 15px 35px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255,106,0,0.4);
+}
+
+.hero .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255,106,0,0.5);
+}
+/* =========================
+   ANIMAÇÃO HERO
+========================= */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  nav a {
+    font-size: 14px;
+    margin-left: 15px;
+  }
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+section {
+  padding: 90px 10%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+/* =========================
+   CARDS (SERVIÇOS)
+========================= */
+.servicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.card-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #ff6a00;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* =========================
+   GALERIA
+========================= */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.galeria img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   DEPOIMENTOS
+========================= */
+/* container */
+/* =========================
+   DEPOIMENTOS PROFISSIONAL
+========================= */
+
+.depoimentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding-top: 40px;
+}
+
+.depoimento {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  padding: 20px 25px;
+}
+
+.depoimento:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+/* aspas decorativas no canto superior direito */
+.depoimento::before {
+  content: "“";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 80px; /* maior destaque */
+  color: #ff6a00;
+  opacity: 0.2;
+}
+
+.depoimento-header {
+  display: flex;
+  align-items: center; /* alinha verticalmente avatar e texto */
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.depoimento-header > div {
+  display: flex;
+  flex-direction: column; /* nome em cima, estrelas embaixo */
+  align-items: flex-start; /* garante que estrelas comecem alinhadas */
+  justify-content: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff6a00;
+  transition: 0.3s transform, 0.3s border-color;
+}
+
+/* efeito hover do avatar */
+.depoimento:hover .avatar {
+  transform: scale(1.1);
+  border-color: #ff8c2a;
+}
+
+.depoimento-nome {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.depoimento-estrelas {
+  color: #FFD700; /* dourado */
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.depoimento-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.depoimento-btn {
+  align-self: flex-start;
+  background: linear-gradient(45deg, #ff6a00, #ff8c2a);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.depoimento:hover .depoimento-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animação suave ao carregar */
+.depoimento {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s forwards;
+}
+
+.depoimento:nth-child(1) { animation-delay: 0.1s; }
+.depoimento:nth-child(2) { animation-delay: 0.3s; }
+.depoimento:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #ff6a00;
+  border: none;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   CHATBOT
+========================= */
+.chatbot-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #ff6a00;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 360px;
+  max-width: 90%;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  z-index: 9999;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.chat-header {
+  background: linear-gradient(90deg, #ff6a00, #ff8c2a);
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 16px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.chat-header img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #ff8c2a #f0f0f0;
+}
+
+/* scroll moderno */
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #ff8c2a;
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.msg {
+  padding: 12px 16px;
+  border-radius: 20px;
+  max-width: 75%;
+  animation: fadeIn 0.3s ease;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* usuário */
+.user {
+  background: #ffb366; /* laranja claro, suavemente mais claro que o laranja do chat */
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* bot */
+.bot {
+  background: #f1f1f1;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bot img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* input */
+.chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  gap: 8px;
+  background: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.chat-input input:focus {
+  border-color: #ff8c2a;
+  box-shadow: 0 0 8px rgba(255,140,42,0.3);
+}
+
+.chat-input button {
+  background: #ff6a00;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chat-input button:hover {
+  background: #ff8c2a;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-links img {
+  width: 40px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
+/* =========================
+   CHAT MODERNO
+========================= */
+
+.chatbot {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.chat-header {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.msg {
+  padding: 12px 16px;
+  border-radius: 20px;
+  max-width: 75%;
+  animation: fadeIn 0.3s ease;
+}
+
+.user {
+  background: linear-gradient(45deg, #5c8df6, #7aa7ff);
+}
+
+.bot {
+  background: #f1f1f1;
+}
+
+.chat-input input {
+  outline: none;
+}
+
+.chat-input button:hover {
+  background: #ff8c2a;
+}
+
+/* animação */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* =========================
+   GALERIA MODERNA
+========================= */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Alinha todas igual */
+  gap: 20px;
+}
+
+.galeria img {
+  width: 100%;
+  height: 200px; /* todas do mesmo tamanho */
+  object-fit: cover; /* mantém proporção e corta o excesso */
+  border-radius: 15px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.galeria img:hover {
+  transform: scale(1.05) rotate(1deg); /* efeito moderno sutil */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  filter: brightness(1.1);
+}
+
+/* =========================
+   DEPOIMENTOS PROFISSIONAL
+========================= */
+
+.depoimentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding-top: 40px;
+}
+
+.depoimento {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  padding: 20px 25px;
+}
+
+.depoimento:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+.depoimento-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.depoimento-nome {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.depoimento-estrelas {
+  color: #FFD700; /* dourado */
+  font-size: 18px;
+}
+
+.depoimento-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.depoimento-btn {
+  align-self: flex-start;
+  background: linear-gradient(45deg, #ff6a00, #ff8c2a);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.depoimento:hover .depoimento-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animação suave ao carregar */
+.depoimento {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s forwards;
+}
+
+.depoimento:nth-child(1) { animation-delay: 0.1s; }
+.depoimento:nth-child(2) { animation-delay: 0.3s; }
+.depoimento:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #ff6a00;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  
+  /* efeito escondido */
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+
+  transition: all 0.3s ease;
+}
+
+.card-icon {
+  margin-bottom: 15px;
+}
+
+.card-icon i {
+  font-size: 42px;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #ff6a00;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.card:hover .card-icon i {
+  color: #ff6a00;
+  -webkit-text-stroke: 0;
+  transform: scale(1.2);
+}
+
+.card:hover .card-icon {
+  color: #ff6a00;
+  transform: scale(1.2) rotate(5deg);
+}
+.card:hover .card-btn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+</style>
+</head>
+<body>
+<!-- NAVBAR FIXA -->
+<nav>
+  <div class="logo-box">
+    <a href="#" class="logo">Construtora Alves</a>
+  </div>
+  <div class="menu">
+    <a href="#servicos">Serviços</a>
+    <a href="#galeria">Obras</a>
+    <a href="#depoimentos">Clientes</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-box">
+    <h1>Construindo sonhos com excelência</h1>
+    <p>Qualidade, segurança e compromisso em cada obra. Transformamos projetos em realidade.</p>
+    <a href="#contato" class="btn">Solicitar Orçamento</a>
+  </div>
+</section>
+
+<section id="servicos">
+<h2>Nossos Serviços</h2>
+<div class="servicos">
+<div class="card">
+  <div class="card-icon">
+    <i class="fa-solid fa-building"></i>
+  </div>
+  <h3>Construção</h3>
+  <p>Construção de casas e prédios com qualidade e segurança.</p>
+  <a href="#contato" class="card-btn">Saiba Mais</a>
+</div>
+
+<div class="card">
+  <div class="card-icon">
+   <i class="fa-solid fa-hammer"></i>
+  </div>
+  <h3>Reformas</h3>
+  <p>Modernização e melhorias completas para seu imóvel.</p>
+  <a href="#contato" class="card-btn">Saiba Mais</a>
+</div>
+
+<div class="card">
+  <div class="card-icon">
+    <i class="fa-solid fa-compass-drafting"></i>
+  </div>
+  <h3>Projetos</h3>
+  <p>Planejamento detalhado para garantir o melhor resultado.</p>
+  <a href="#contato" class="card-btn">Saiba Mais</a>
+</div>
+</div>
+</section>
+
+<section id="galeria">
+  <h2>Nossas Obras</h2>
+  <div class="galeria">
+    <img src="imagem_01.jpg" alt="Obra 1">
+    <img src="imagem_02.jpg" alt="Obra 2">
+    <img src="imagem_03.jpg" alt="Obra 3">
+  </div>
+</section>
+
+<section id="depoimentos">
+  <h2>Clientes Satisfeitos</h2>
+
+  <div class="depoimentos">
+
+    <div class="depoimento">
+      <div class="depoimento-header">
+        <img src="https://i.pravatar.cc/100?img=1" class="avatar">
+        <div>
+          <div class="depoimento-nome">João Silva</div>
+          <div class="depoimento-estrelas">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="depoimento-content">
+        Excelente trabalho! A obra ficou perfeita.
+      </div>
+    </div>
+
+    <div class="depoimento">
+      <div class="depoimento-header">
+        <img src="https://i.pravatar.cc/100?img=2" class="avatar">
+        <div>
+          <div class="depoimento-nome">Maria Souza</div>
+          <div class="depoimento-estrelas">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="depoimento-content">
+        Equipe muito profissional e responsável.
+      </div>
+    </div>
+
+    <div class="depoimento">
+      <div class="depoimento-header">
+        <img src="https://i.pravatar.cc/100?img=3" class="avatar">
+        <div>
+          <div class="depoimento-nome">Carlos Mendes</div>
+          <div class="depoimento-estrelas">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="depoimento-content">
+        Cumpriram prazo e qualidade.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contato">
+  <h2>Solicitar Orçamento</h2>
+  <form id="formOrcamento">
+    <input id="nome" placeholder="Seu nome" required>
+    <input id="telefone" placeholder="Telefone / WhatsApp" required>
+    <textarea id="projeto" placeholder="Descreva seu projeto" required></textarea>
+    <button type="submit">Enviar solicitação</button>
+  </form>
+</section>
+
+<a class="whatsapp" href="https://wa.me/5513996151691" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:60%; height:60%;">
+</a>
+
+<div class="chatbot-btn" id="btnChat">💬</div>
+<div class="chatbot" id="chatbot">
+<div class="chat-header">
+  <div style="display:flex;align-items:center;">
+    <img src="https://cdn-icons-png.flaticon.com/512/744/744922.png" alt="Robô Construtor">
+    Assistente Virtual Construtora Alves
+  </div>
+  <span id="closeChat" style="cursor:pointer;">✖</span>
+</div>
+<div class="chat-messages" id="chat"></div>
+<div class="chat-input">
+<input id="pergunta" placeholder="Digite sua mensagem...">
+<button id="btnEnviar">Enviar</button>
+</div>
+</div>
+
+<footer id="rodape">
+<p>Siga-nos nas redes sociais:</p>
+<div class="social-links">
+<a href="https://wa.me/5513996151691" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+<a href="https://www.instagram.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram"></a>
+</div>
+</footer>
+
+<script>
+// ========================== CONFIG ==========================
+const API_KEY = "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";
+const MODEL = "llama-3.1-8b-instant";
+
+// ========================== ELEMENTOS ==========================
+const btnChat = document.getElementById("btnChat");
+const chatbot = document.getElementById("chatbot");
+const closeChat = document.getElementById("closeChat");
+const btnEnviar = document.getElementById("btnEnviar");
+const input = document.getElementById("pergunta");
+const chat = document.getElementById("chat");
+
+// ========================== MEMÓRIA ==========================
+let historico = [
+  { role: "system", content: "Você é um atendente da Construtora Alves. Seu objetivo é coletar: nome, telefone e descrição do projeto. Faça uma pergunta por vez e seja direto. NÃO agende reuniões." }
+];
+
+let dadosCliente = {
+  nome: "",
+  telefone: "",
+  projeto: ""
+};
+
+// ========================== ABRIR / FECHAR CHAT ==========================
+btnChat.onclick = () => chatbot.style.display = "flex";
+closeChat.onclick = () => chatbot.style.display = "none";
+
+// ========================== EVENTOS ==========================
+btnEnviar.onclick = enviarMensagem;
+input.addEventListener("keypress", e => { if(e.key==="Enter") enviarMensagem(); });
+
+// ========================== FUNÇÃO ADICIONAR MENSAGEM ==========================
+function adicionarMensagem(texto, classe, avatarUrl=null) {
+  const div = document.createElement("div");
+  div.className = "msg " + classe;
+
+  if(classe==="bot" && avatarUrl) {
+    const img = document.createElement("img");
+    img.src = avatarUrl;
+    img.alt = "Bot";
+    div.appendChild(img);
+  }
+
+  const span = document.createElement("span");
+  span.innerText = texto;
+  div.appendChild(span);
+
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// ========================== ENVIAR MENSAGEM ==========================
+async function enviarMensagem() {
+  const pergunta = input.value.trim();
+  if(!pergunta) return;
+
+  adicionarMensagem(pergunta, "user");
+  input.value = "";
+  historico.push({ role: "user", content: pergunta });
+
+  // Captura simples de dados
+if (!dadosCliente.nome) {
+  dadosCliente.nome = pergunta;
+} else if (!dadosCliente.telefone) {
+  dadosCliente.telefone = pergunta;
+} else if (!dadosCliente.projeto) {
+  dadosCliente.projeto = pergunta;
+
+  // Quando tiver tudo → envia pro WhatsApp
+  const mensagem = `Olá, gostaria de solicitar um orçamento:%0A
+Nome: ${dadosCliente.nome}%0A
+Telefone: ${dadosCliente.telefone}%0A
+Projeto: ${dadosCliente.projeto}`;
+
+  const numero = "5513996151691";
+  const url = `https://wa.me/${numero}?text=${mensagem}`;
+
+  window.open(url, "_blank");
+
+  adicionarMensagem("Perfeito! Estou te redirecionando para o WhatsApp agora 👍", "bot");
+
+  return; // para não chamar a IA
+}
+
+  // Digitando...
+  const loading = document.createElement("div");
+loading.className = "msg bot";
+loading.innerText = "Digitando...";
+chat.appendChild(loading);
+chat.scrollTop = chat.scrollHeight;
+
+try {
+  const resposta = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + API_KEY
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      messages: historico
+    })
+  });
+
+  const data = await resposta.json();
+
+  // remove o "Digitando..." antes de adicionar a resposta
+  loading.remove();
+
+  const texto = data.choices[0].message.content;
+
+  historico.push({ role: "assistant", content: texto });
+
+  adicionarMensagem(texto, "bot");
+
+} catch (erro) {
+  loading.remove();
+  console.error("ERRO:", erro);
+  adicionarMensagem("Erro ao conectar com IA.", "bot");
+}
+}
+// ========================== FORM WHATSAPP ==========================
+const form = document.getElementById("formOrcamento");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault(); // impede recarregar a página
+
+  const nome = document.getElementById("nome").value;
+  const telefone = document.getElementById("telefone").value;
+  const projeto = document.getElementById("projeto").value;
+
+  const mensagem = `Olá, gostaria de solicitar um orçamento:%0A
+Nome: ${nome}%0A
+Telefone: ${telefone}%0A
+Projeto: ${projeto}`;
+
+  const numero = "5513996151691"; // seu número
+
+  const url = `https://wa.me/${numero}?text=${mensagem}`;
+
+  window.open(url, "_blank");
+});
+</script>
+
+
+</body>
+</html>
